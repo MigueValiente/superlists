@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -14,7 +14,7 @@
     <!-- Header -->
     <nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="http://localhost:8080/phpblog/">
+            <a class="navbar-brand" href="<?=BASE_URL?>">
                 Título Blog
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,10 +24,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="login.php">Login</a>
+                        <a class="nav-link" href="<?=BASE_URL?>login">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link link-important" href="http://localhost:8080/phpblog/register">Registro</a>
+                        <a class="nav-link link-important" href="http://localhost:8080/superlists/register">Registro</a>
                     </li>
                 </ul>
             </div>

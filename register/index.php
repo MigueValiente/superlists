@@ -2,11 +2,16 @@
     require_once '../setup.php';
     require_once '../database/conexion.php';
 
+    if ( !empty($_SESSION) ){
+        header("Location: ".BASE_URL);
+        die();
+    }
+    
     if( isset($_POST['registro']) ){
         $username = $_POST['username'] ?? null;
         $email = $_POST['email'] ?? null;
-        $password = $_POST['password'] ?? null;
-        $passwordconf = $_POST['password-conf'] ?? null;
+        $password = trim($_POST['password']) ?? null;
+        $passwordconf = trim($_POST['password-conf']) ?? null;
 
         // Array de errores
         $errors = [];
@@ -62,7 +67,7 @@
             $password_segura = password_hash($password, PASSWORD_BCRYPT);
 
             // Insertar usuario en la base de datos
-            $sql = "INSERT INTO users VALUES(NULL, '$username', '$email', '$password', NOW(), NOW())";
+            $sql = "INSERT INTO users VALUES(NULL, '$username', '$email', '$password_segura', NOW(), NOW())";
 
             $guardar = mysqli_query($db, $sql);
 

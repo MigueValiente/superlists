@@ -18,18 +18,6 @@
                 <?php endif; ?>
             </div>
             <div class="form-group">
-                <label for="email">Email address</label>
-                <input type="email" class="form-control <?=($errors['email'])?"is-invalid":""?>" id="email" name="email" aria-describedby="emailHelp" placeholder="Introduce un email"  value="<?=($email??'')?>">
-                <small id="emailHelp" class="form-text text-muted">No compartiremos tu email con nadie.</small>
-                <?php if( !empty($errors['email']) ): ?> 
-                <div class="invalid-feedback">
-                    <?php foreach ($errors['email'] as $error): ?>
-                        <?=$error?><br>
-                    <?php endforeach; ?>
-                </div>
-                <?php endif; ?>
-            </div>
-            <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" class="form-control <?=($errors['password'])?"is-invalid":""?>" id="password" name="password" aria-describedby="passwordHelp" placeholder="Password">
                 <small id="passwordHelp" class="form-text text-muted">Debe tener 6 caracteres como mínimo</small>
@@ -41,18 +29,14 @@
                 </div>
                 <?php endif; ?>
             </div>
-            <div class="form-group">
-                <label for="password-conf">Confirmar Password</label>
-                <input type="password" class="form-control <?=($errors['passwordconf'])?"is-invalid":""?>" id="password-conf" name="password-conf" placeholder="Password">
-                <?php if( !empty($errors['passwordconf']) ): ?> 
-                <div class="invalid-feedback">
-                    <?php foreach ($errors['passwordconf'] as $error): ?>
-                        <?=$error?><br>
-                    <?php endforeach; ?>
-                </div>
-                <?php endif; ?>
+            <?php if( !empty($errors['login']) ): ?>
+            <div class="alert alert-danger" role="alert">
+                <?php foreach($errors['login'] as $error): ?>
+                    <?=$error?>
+                <?php endforeach; ?>
             </div>
-            <button type="submit" name="registro" class="btn btn-primary">Registrarse</button>
+            <?php endif; ?>
+            <button type="submit" name="login" class="btn btn-primary">Entrar</button>
         </form>
     </div>
 </div>

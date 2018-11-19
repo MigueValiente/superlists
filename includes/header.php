@@ -23,12 +23,21 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
+                <?php if( !isset($_SESSION['usuario']) ): ?>
                     <li class="nav-item">
                         <a class="nav-link" href="<?=BASE_URL?>login">Login</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link link-important" href="http://localhost:8080/superlists/register">Registro</a>
                     </li>
+                <?php else: ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?=BASE_URL?>profile"><?=$_SESSION['usuario']['username']?></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link link-important" href="http://localhost:8080/superlists/logout">Logout</a>
+                    </li>
+                <?php endif; ?>
                 </ul>
             </div>
         </div>

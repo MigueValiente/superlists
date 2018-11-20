@@ -15,7 +15,7 @@
     <nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="<?=BASE_URL?>">
-                Título Blog
+                SuperLists
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -31,6 +31,15 @@
                         <a class="nav-link link-important" href="http://localhost:8080/superlists/register">Registro</a>
                     </li>
                 <?php else: ?>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+                        Listas
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Mis Listas</a>
+                            <a class="dropdown-item" href="<?=BASE_URL?>create_list">Crear Lista</a>
+                        </div>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<?=BASE_URL?>profile"><?=$_SESSION['usuario']['username']?></a>
                     </li>

@@ -1,6 +1,7 @@
 <?php
     require_once '../setup.php';
     require_once '../database/conexion.php';
+    require_once '../database/helpers.php';
 
     if ( !empty($_SESSION) ){
         header("Location: ".BASE_URL);
@@ -40,18 +41,25 @@
         
                 // Comprobar la contraseña
                 if( password_verify($password, $usuario['password']) ) {
+                    // Guardar login
+                    guardarLogin($db, $username, 'OK');
+
                     // Utilizar una sesión para guardar los datos del usuario logueado
                     $_SESSION['usuario'] = $usuario;
                     header("Location: ".BASE_URL);
                 }else{
+                    // Guardar login si la contraseña no es correcta
+                    guardarLogin($db, $username, 'WRONG_PASS');
+
                     // Si algo falla enviar una sesión con el fallo
                     $errors['login']['password'] = "La contraseña no es correcta.";
                 }
             }else{
+                // Guardar login sin el usuario no es correcto
+                guardarLogin($db, $username, 'WRONG_USER');
                 $errors['login']['data'] = "Los datos no son correctos.";
             }  
         }
     }
 
     require_once 'login.view.php';
-    

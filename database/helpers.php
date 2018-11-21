@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Función que guarda información sobre el resultado
+ * de los logins en la aplicación.
+ */
 function guardarLogin($db, $username, $status){
     // Guardar login
 

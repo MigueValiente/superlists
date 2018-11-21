@@ -10,7 +10,6 @@
     if( isset($_POST['new_list']) ){
         $listname = $_POST['listname'] ?? null;
         $description = $_POST['listdesc'] ?? null;
-        $user_id = $_SESSION['usuario']['id'];
 
         // Array de errores
         $errors = [];
@@ -29,13 +28,15 @@
     
         if( empty($errors) ){
             // Insertar usuario en la base de datos
+            $user_id = $_SESSION['usuario']['id'];
             $sql = "INSERT INTO lists VALUES(NULL, $user_id, '$listname', '$description', NOW(), NOW())";
 
             $guardar = mysqli_query($db, $sql);
 
             if( $guardar ){
+                $id = mysqli_insert_id($db);
                 // Redirigir a la página de Mis listas
-                header("Location: ".BASE_URL);
+                header("Location: ".BASE_URL.'list/?id='.$id);
                 die();
             }
 

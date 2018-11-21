@@ -15,17 +15,17 @@
         // Validaciones
         // username:
         if ( empty($username) ){
-            $errors['username']['empty'] = "Debes introducir un nombre de usuario.";
+            $errors['username']['empty'] = "Debes introducir un nombre de usuario.<br>";
             $username = null;
         }
 
         // password:
         if ( empty($password) ){
-            $errors['password']['empty'] = "Debes facilitar una contraseña.";
+            $errors['password']['empty'] = "Debes facilitar una contraseña.<br>";
         }
     
         if ( strlen($password) < 6 ) {
-            $errors['password']['length'] = "La contraseña debe tener al menos 6 caracteres.";
+            $errors['password']['length'] = "La contraseña debe tener al menos 6 caracteres.<br>";
         }
 
         if( empty($errors) ){

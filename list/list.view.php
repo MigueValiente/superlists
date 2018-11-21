@@ -7,7 +7,7 @@
     <div class="offset-3 col-6 pt-4 pb-4">
         <?php if( $result ): ?>
         <ul class="list-group">
-        <?php while($item = mysqli_fetch_assoc($result) ): ?>
+        <?php while($item = sult) ): ?>
             <li class="list-group-item list-group-item-info"><?=$item['description']?></li>
         <?php endwhile; ?>
         </ul>

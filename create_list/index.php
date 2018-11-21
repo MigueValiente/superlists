@@ -3,13 +3,13 @@
     require_once '../database/conexion.php';
 
     if ( empty($_SESSION) ){
-        header("Location: ".BASE_URL);
+        header("Location: ".BASE_URL.'login');
         die();
     }
 
     if( isset($_POST['new_list']) ){
-        $listname = $_POST['listname'] ?? null;
-        $description = $_POST['listdesc'] ?? null;
+        $listname = trim($_POST['listname']) ?? null;
+        $description = trim($_POST['listdesc']) ?? null;
 
         // Array de errores
         $errors = [];

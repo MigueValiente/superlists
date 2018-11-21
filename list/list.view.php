@@ -8,18 +8,18 @@
         <?php if( $result ): ?>
         <ul class="list-group">
         <?php while($item = mysqli_fetch_assoc($result) ): ?>
-            <li class="list-group-item list-group-item-dark"><?=$item['description']?></li>
+            <li class="list-group-item list-group-item-info"><?=$item['description']?></li>
         <?php endwhile; ?>
         </ul>
         <?php endif; ?>
         <hr>
         <form action="" method="POST" novalidate>
             <div class="form-group">
-                <input type="text" class="form-control <?=($errors['username'])?"is-invalid":""?>" id="item" name="item" aria-describedby="itemHelp" placeholder="Introduce un nuevo item" value="<?=($username??'')?>">
+                <input type="text" class="form-control <?=($errors['item'])?"is-invalid":""?>" id="item" name="item" aria-describedby="itemHelp" placeholder="Introduce un nuevo item" value="<?=($username??'')?>">
                 <small id="itemHelp" class="form-text text-muted">Debe introducir algo</small>
-                <?=validationDiv('username')?>
+                <?=validationDiv('username', 'invalid-feedback')?>
             </div>
-            <?=alertDiv('login')?>
+            <?=validationDiv('login','alert')?>
             <button type="submit" name="saveitem" class="btn btn-primary">Guardar</button>
         </form>
     </div>

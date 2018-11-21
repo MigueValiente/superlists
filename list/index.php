@@ -11,7 +11,6 @@ $list_id = $_GET['id']; // Validar esto
 
 if( isset($_POST['saveitem']) ){
     $item = trim($_POST['item']) ?? null;
-    
 
     // Validaciones
     // username:

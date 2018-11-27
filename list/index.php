@@ -1,7 +1,7 @@
 <?php
-    require_once '../setup.php';
-    require_once '../database/conexion.php';
-    require_once '../database/helpers.php';
+require_once '../setup.php';
+require_once '../database/conexion.php';
+require_once '../database/helpers.php';
 
 if( !isset($_GET['id']) ){
     header("Location: ".BASE_URL);
@@ -23,7 +23,7 @@ if( isset($_POST['saveitem']) ){
         // Guardar item en la base de datos
         
         // Insertar usuario en la base de datos
-        $sql = "INSERT INTO items VALUES(NULL, $list_id, '$item', NOW(), NOW())";
+        $sql = "INSERT INTO items(list_id, description) VALUES($list_id, '$item')";
 
         $guardar = mysqli_query($db, $sql);
 
@@ -37,9 +37,12 @@ if( isset($_POST['saveitem']) ){
     }
 }else{
     // Extraer los items de la lista
-    $sql = "SELECT * FROM items WHERE list_id = $list_id;";
+    $sql_items = "SELECT * FROM items WHERE list_id = $list_id;";
+    $result_items = mysqli_query($db, $sql_items);
 
-    $result = mysqli_query($db, $sql);
+    $sql_list = "SELECT * FROM lists WHERE id = $list_id LIMIT 1";
+    $result_list = mysqli_query($db, $sql_list);
+    $list = mysqli_fetch_assoc($result_list);
 }
 
 require_once 'list.view.php';

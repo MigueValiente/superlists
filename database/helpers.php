@@ -5,10 +5,6 @@
  * de los logins en la aplicación.
  */
 function guardarLogin($db, $username, $status){
-    // Guardar login
-
-    // 192.168.64.1:8080/superlists
-
     if (!empty($_SERVER['HTTP_CLIENT_IP']))   //check ip from share internet
     {
         $ip=$_SERVER['HTTP_CLIENT_IP'];

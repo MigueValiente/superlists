@@ -24,3 +24,35 @@ function guardarLogin($db, $username, $status){
 
     $guardar_login = mysqli_query($db, $sql);
 }
+
+/**
+ * Detect if a user owns a list.
+ * 
+ * @param $db Database connection.
+ * @param $user_id User id.
+ * @param $list_id List id.
+ */
+function userOwnsList($db, $user_id, $list_id) {
+    $sql = "SELECT * FROM lists WHERE id = $list_id AND user_id = $user_id LIMIT 1";
+    $result = mysqli_query($db, $sql);
+    if( mysqli_num_rows($result) == 0 ){
+        return false;
+    }
+    return true;
+}
+
+/**
+ * Detect if a item belongs to a list.
+ * 
+ * @param $db Database connection.
+ * @param $item_id Item id.
+ * @param $list_id List id.
+ */
+function itemBelongsToList($db, $item_id, $list_id) {
+    $sql = "SELECT * FROM items WHERE id = $item_id AND list_id = $list_id LIMIT 1";
+    $result = mysqli_query($db, $sql);
+    if( mysqli_num_rows($result) == 0 ){
+        return false;
+    }
+    return true;
+}

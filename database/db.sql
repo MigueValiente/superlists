@@ -34,5 +34,5 @@ CREATE TABLE items (
     created_at	TIMESTAMP NOT NULL default now(),
     updated_at	TIMESTAMP NOT NULL default now() on update now(),
     
-    CONSTRAINT fk_list_item FOREIGN KEY(list_id) REFERENCES lists(id)
+    CONSTRAINT fk_list_item FOREIGN KEY(list_id) REFERENCES lists(id) ON DELETE CASCADE
 )Engine=INNODB;

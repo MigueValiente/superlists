@@ -35,7 +35,7 @@ if( isset($_POST['saveitem']) ){
         echo "Error";
         die();   
     }
-}else{
+}
     // Extraer los items de la lista
     $sql_items = "SELECT * FROM items WHERE list_id = $list_id;";
     $result_items = mysqli_query($db, $sql_items);
@@ -43,6 +43,6 @@ if( isset($_POST['saveitem']) ){
     $sql_list = "SELECT * FROM lists WHERE id = $list_id LIMIT 1";
     $result_list = mysqli_query($db, $sql_list);
     $list = mysqli_fetch_assoc($result_list);
-}
+
 
 require_once 'list.view.php';

@@ -1,3 +1,7 @@
+i {
+    margin: 0 5px;
+}
+
 #footer {
     background: linear-gradient(90deg, #1c3643, #273b47 25%, #1e5372);
     color: white;
@@ -11,10 +15,17 @@
     width: 80px;
 }
 
-.link-important {
-    color: #97c983 !important;
+#my_lists {
+    padding:10px 0;
 }
 
-i {
-    margin: 0 5px;
+#card_list {
+    margin: 10px 0;
+}
+
+p.card-text {
+    height: 50px;
+}
+.link-important {
+    color: #97c983 !important;
 }

@@ -29,7 +29,7 @@
         }
 
         if ( !preg_match("/[0-9a-z]+$/",$username) ){
-            $errors['username']['format'] = "La contraseña solo admite números y letras minúsculas.<br>";
+            $errors['username']['format'] = "El usuario solo admite números y letras minúsculas.<br>";
             $username = null;
         }
     

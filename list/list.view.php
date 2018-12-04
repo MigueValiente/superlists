@@ -8,6 +8,7 @@
         <?php if( $list ): ?>
         <h2><?=$list['name']?></h2>
         <p><?=$list['description']?></p>
+        <p class="text-right"><a href="<?=BASE_URL?>edit_list/?id=<?=$list['id']?>"><i class="fas fa-edit"></i></a></p>
         <?php endif; ?>
         <?php if( mysqli_num_rows($result_items) == 0): ?>
         <div class="alert alert-warning" role="alert">

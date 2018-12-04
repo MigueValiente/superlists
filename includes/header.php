@@ -46,7 +46,7 @@
                             <?=$_SESSION['usuario']['username']?>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="<?=BASE_URL?>profile"><i class="fas fa-user"></i> Perfil</a>
+                            <a class="dropdown-item" href="<?=BASE_URL?>profile\?section=name"><i class="fas fa-user"></i> Perfil</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="<?=BASE_URL?>logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
                         </div>
